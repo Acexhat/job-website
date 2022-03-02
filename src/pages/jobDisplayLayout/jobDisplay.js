@@ -36,7 +36,7 @@ export const JobDisplayLayout = () => {
         } else {
             setFilteredJobs(jobData);
         }
-    }, [tags])
+    }, [tags, jobData])
 
     return (
         <div className={classes.root}>
