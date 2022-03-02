@@ -1,23 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import { useStyles } from './Appstyle';
+import { Dashboard } from './pages/Dashboard';
+import { useDispatch } from 'react-redux';
+import React from 'react';
+import { setData } from './store/Actions/formActions';
+import { companyData } from './data';
 
 function App() {
+  const classes = useStyles();
+  const disp = useDispatch();
+
+  React.useEffect(() => {
+    disp(setData(companyData));
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.app_root}>
+      <Dashboard />
     </div>
   );
 }
